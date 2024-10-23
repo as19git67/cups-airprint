@@ -15,16 +15,27 @@ ENV ADMIN_PASSWORD=admin
 # install packages
 RUN apt-get update \
   && apt-get install -y \
-  sudo \
-  cups \
-  cups-bsd \
-  cups-filters \
-  foomatic-db-compressed-ppds \
-  printer-driver-all \
-  openprinting-ppds \
-  hpijs-ppds \
-  hp-ppd \
-  hplip \
+  locales \
+	brother-lpr-drivers-extra brother-cups-wrapper-extra \
+	printer-driver-splix \
+	printer-driver-gutenprint \
+	gutenprint-doc \
+	gutenprint-locales \
+	libgutenprint9 \
+	libgutenprint-doc \
+	ghostscript \
+	hplip \
+	cups \
+	cups-pdf \
+	cups-client \
+	cups-filters \
+	inotify-tools \
+	avahi-daemon \
+	avahi-discover \
+	python3 \
+	python3-dev \
+	python3-pip \
+	python3-cups \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
