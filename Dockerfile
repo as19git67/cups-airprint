@@ -16,11 +16,11 @@ RUN apk update && apk add --no-cache \
   cups-filters
 
 # add print user
-RUN adduser --home /home/admin --shell /bin/bash --gecos "admin" --disabled-password admin \
+RUN adduser --no-create-home --gecos "admin" --disabled-password admin \
   && adduser admin sudo \
   && adduser admin lp \
   && adduser admin lpadmin
-
+    
 # disable sudo password checking
 RUN echo 'admin ALL=(ALL:ALL) ALL' >> /etc/sudoers
 
