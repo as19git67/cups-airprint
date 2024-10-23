@@ -13,14 +13,7 @@ RUN apk update && apk add --no-cache \
   tzdata \
   sudo \
   cups \
-  cups-bsd \
-  cups-filters \
-  foomatic-db-compressed-ppds \
-  printer-driver-all \
-  openprinting-ppds \
-  hpijs-ppds \
-  hp-ppd \
-  hplip
+  cups-filters
 
 # add print user
 RUN adduser --home /home/admin --shell /bin/bash --gecos "admin" --disabled-password admin \
