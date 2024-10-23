@@ -1,6 +1,6 @@
 # base image
 ARG ARCH=amd64
-FROM $ARCH/debian:bookworm-slim
+FROM $ARCH/ubuntu:latest
 
 # args
 ARG VCS_REF
