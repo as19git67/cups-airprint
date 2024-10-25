@@ -1,3 +1,8 @@
+# syntax=docker/dockerfile:1
+
+# example docker run:
+# docker run --env=TZ="Europe/Berlin" -p 631:631 -d ghcr.io/as19git67/cups-airprint:latest
+
 # base image
 ARG ARCH=amd64
 FROM $ARCH/ubuntu:latest
