@@ -1,11 +1,10 @@
 # syntax=docker/dockerfile:1
 
 # example docker run:
-# docker run --env=TZ="Europe/Berlin" -p 631:631 -d ghcr.io/as19git67/cups-airprint:latest
+# docker run --env=TZ="Europe/Berlin" -d --restart always -p 631:631 -v $(pwd):/etc/cups -e ADMIN_PASSWORD=mySecretPassword ghcr.io/as19git67/cups-airprint:latest
 
 # base image
-ARG ARCH=amd64
-FROM $ARCH/ubuntu:latest
+FROM ubuntu:latest
 
 # args
 ARG VCS_REF
@@ -21,7 +20,7 @@ ENV ADMIN_PASSWORD=admin
 RUN apt-get update \
   && apt-get install -y \
 locales \
-brother-lpr-drivers-extra brother-cups-wrapper-extra \
+#brother-lpr-drivers-extra brother-cups-wrapper-extra \
 printer-driver-splix \
 printer-driver-gutenprint \
 gutenprint-doc \
@@ -65,6 +64,7 @@ RUN cp -rp /etc/cups /etc/cups-skel
 
 # entrypoint
 ADD docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod 755 /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT [ "docker-entrypoint.sh" ]
 
 # default command
