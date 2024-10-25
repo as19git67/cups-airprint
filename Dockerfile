@@ -17,8 +17,7 @@ ENV TZ=${ARG_TZ}
 ENV ADMIN_PASSWORD=admin
 
 # install packages
-RUN apt-get update \
-  && apt-get install -y \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
 locales \
 #brother-lpr-drivers-extra brother-cups-wrapper-extra \
 printer-driver-splix \
