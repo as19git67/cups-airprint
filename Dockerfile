@@ -49,6 +49,8 @@ RUN /usr/sbin/cupsd \
   && kill $(cat /var/run/cups/cupsd.pid) \
   && echo "ServerAlias *" >> /etc/cups/cupsd.conf
 
+RUN sed -i 's/.*enable-dbus=.*/enable-dbus=no/' /etc/avahi/avahi-daemon.conf
+
 # copy /etc/cups for skeleton usage
 RUN cp -rp /etc/cups /etc/cups-skel
 ADD cups.config.installed/* /etc/cups-skel
