@@ -27,6 +27,7 @@ cups-pdf \
 cups-client \
 cups-filters \
 avahi-daemon \
+libnss-mdns \
 avahi-discover \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
